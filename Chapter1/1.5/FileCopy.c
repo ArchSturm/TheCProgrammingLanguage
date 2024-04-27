@@ -1,11 +1,12 @@
 
 #include <stdio.h>
 
-void copyInputToOutputV1(void);
-void copyInputToOutputV2(void);
-void copyInputToOutputV3(void);
+void copyInputToOutputV1();
+void copyInputToOutputV2();
+void copyInputToOutputV3();
 
-int main(void) {
+int main()
+{
     // copy input to output; 1st version
     copyInputToOutputV1();
     // copy input to output; 2nd version
@@ -16,16 +17,18 @@ int main(void) {
     return 0;
 }
 
-void copyInputToOutputV1(void) {
+void copyInputToOutputV1()
+{
     int c;
 
     c = getchar();
-    while (c != EOF) {
+    while (c != EOF)
+    {
         putchar(c);
         c = getchar();
     }
 }
-/* 
+/*
 What appears to be a character on the keyboard or screen is of course, like everything else, stored internally
 just as a bit pattern. The type char is specifically meant for storing such character data, but any integer type
 can be used. We used int for a subtle but important reason.
@@ -41,19 +44,23 @@ same as any char value. By using the symbolic constant, we are assured that noth
 on the specific numeric value.
 */
 
-void copyInputToOutputV2(void) {
+void copyInputToOutputV2()
+{
     int c;
 
-    while ((c = getchar()) != EOF) {
+    while ((c = getchar()) != EOF)
+    {
         putchar(c);
     }
 }
 
-void copyInputToOutputV3(void) {
+void copyInputToOutputV3()
+{
     // test the precedence of != and =
     int c;
 
-    while (c = getchar() != EOF) {
+    while (c = getchar() != EOF)
+    {
         putchar(c);
     }
 }
