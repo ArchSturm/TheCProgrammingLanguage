@@ -1,33 +1,16 @@
 
 #include <stdio.h>
 
-void copyInputToOutputV1();
-void copyInputToOutputV2();
-void copyInputToOutputV3();
-
 int main()
-{
-    // copy input to output; 1st version
-    copyInputToOutputV1();
-    // copy input to output; 2nd version
-    copyInputToOutputV2();
-    // test the precedence of != and =
-    copyInputToOutputV3();
-
-    return 0;
-}
-
-void copyInputToOutputV1()
 {
     int c;
 
-    c = getchar();
-    while (c != EOF)
+    while ((c = getchar()) != EOF)
     {
         putchar(c);
-        c = getchar();
     }
 }
+
 /*
 What appears to be a character on the keyboard or screen is of course, like everything else, stored internally
 just as a bit pattern. The type char is specifically meant for storing such character data, but any integer type
@@ -43,24 +26,3 @@ EOF is an integer defined in <stdio.h>, but the specific numeric value doesn't m
 same as any char value. By using the symbolic constant, we are assured that nothing in the program depends
 on the specific numeric value.
 */
-
-void copyInputToOutputV2()
-{
-    int c;
-
-    while ((c = getchar()) != EOF)
-    {
-        putchar(c);
-    }
-}
-
-void copyInputToOutputV3()
-{
-    // test the precedence of != and =
-    int c;
-
-    while (c = getchar() != EOF)
-    {
-        putchar(c);
-    }
-}
