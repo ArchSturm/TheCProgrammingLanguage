@@ -20,7 +20,7 @@ void ex1_8()
 void ex1_9()
 {
     int c;
-    int lastc = -1;
+    int lastc = EOF;
 
     while ((c = getchar()) != EOF)
     {
