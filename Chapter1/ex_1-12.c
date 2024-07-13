@@ -1,5 +1,6 @@
 #include <stdio.h>
 
+// Write a program that priunts its input one word per line
 int main() {
     int c;
     int lastc = EOF;

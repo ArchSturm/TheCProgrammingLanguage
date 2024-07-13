@@ -5,6 +5,7 @@
 int getline(char line[], int maxline);
 int clear(char s[], int len);
 
+// write a program that removes trailing blanks and deletes entire blank lines.
 int main() {
     int len;
     int max = 0;

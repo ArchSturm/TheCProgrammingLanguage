@@ -5,6 +5,8 @@
 int getline(char line[], int maxline);
 void reverse(char s[], char r[], int len);
 
+/* write a function reverse(s) that reverses the character string s.
+   use it to write a program that reverses it's input a line at a time. */
 int main() {
     int len;
     int max = 0;
@@ -37,7 +39,6 @@ void reverse(char s[], char r[], int len) {
     r[len] = s[len];
     for (int i = 0; i < len; ++i) {
         r[j] = s[i];
-        // printf("%i %i | ", j, i);
         --j;
     }
 }

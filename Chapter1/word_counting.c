@@ -1,3 +1,6 @@
+
+// page 20
+
 #include <stdio.h>
 
 #define IN 1  /* inside a word */
