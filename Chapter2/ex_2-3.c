@@ -12,6 +12,10 @@ int main() {
     char s[MAX];
     gethex(s, MAX);
     int d = htoi(s);
+    if (d == -1) {
+        printf("Invalid format");
+        return 1;
+    }
     printf("%i\n", d);
     return 0;
 }
@@ -29,31 +33,29 @@ int gethex(char s[], int lim) {
 }
 
 int htoi(char h[]) {
-    int d = 0;
     int i = 0;
-    char hasx = 0;
 
     for (i; h[i] != '\0'; i++) {
         h[i] = tolower(h[i]);
     }
 
-    if (h[2] == 'x') {
-        hasx = 1;
-    }
-    if (h[i] == '0' && hasx == 0 && i > 1) {
-        d = d + 16;
-        i--;
-    } else if (h[i] == '0' && hasx == 1 && i > 3) {
-        d = d + 16;
-        i--;
+    int converter(char h[], int i) {
+        int d = 0;
+        for (i; h[i] != '\0'; i++) {
+            if (h[i] >= '0' && h[i] <= '9') {
+                d = d * 16 + (h[i] - '0');
+            } else if (h[i] >= 'a' && h[i] <= 'f') {
+                d = d * 16 + (h[i] - 'a' + 10);
+            } else {
+                return -1;
+            }
+        }
+        return d;
     }
 
-    for (i; i >= 0 && h[i] != 'x'; i--) {
-        if (h[i] >= '0' && h[i] <= '9') {
-            d = d * 16 + (h[i] - '0');
-        } else if (h[i] >= 'a' && h[i] <= 'f') {
-            d = d * 16 + (h[i] - 'a' + 10);
-        }
+    if (h[0] == '0' && h[1] == 'x') {
+        return converter(h, 2);
+    } else {
+        return converter(h, 0);
     }
-    return d;
 }
