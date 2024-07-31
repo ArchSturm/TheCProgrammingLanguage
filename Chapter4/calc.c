@@ -9,7 +9,7 @@ void push(double);
 double pop(void);
 
 // reverse Polish calculator
-main() {
+int main() {
     int type;
     double op2;
     char s[MAXOP];
@@ -38,7 +38,7 @@ main() {
             }
             break;
         case '\n':
-            printf("\t%.8g\n", pop());
+            printf("\t%g\n", pop());
             break;
         default:
             printf("error: unknown command %s\n", s);
@@ -81,7 +81,7 @@ void ungetch(int);
 int getop(char s[]) {
     int i, c;
 
-    while ((s[0] = c = getch()) == '' || c == '\t') {
+    while ((s[0] = c = getch()) == ' ' || c == '\t') {
         ;
     }
     s[1] = '\0';
